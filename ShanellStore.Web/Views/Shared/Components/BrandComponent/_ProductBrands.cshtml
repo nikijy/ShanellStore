@@ -1,0 +1,14 @@
+﻿@model IEnumerable<ShanellStore.DataLayer.Entities.Product.ProductBrand>
+
+
+<div class="col-md-3 w3l_fresh_vegetables_grid w3l_fresh_vegetables_grid_right">
+    <div class="w3l_fresh_vegetables_grid2">
+        <ul>
+           @foreach (var item in Model)
+           {
+               <li><i class="fa fa-check" aria-hidden="true"></i><a href="/Product/ShowProductsByBrandId/@item.ProductBrandId">@item.BrandName</a></li>
+           }
+       
+        </ul>
+    </div>
+</div>

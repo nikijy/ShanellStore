@@ -1,0 +1,79 @@
+﻿<div class="agileits_header">
+    <div class="w3l_offers">
+        <a href="/OfferedProducts">!پیشنهاد های ویژه امروز</a>
+    </div>
+    <partial name="_Search" />
+    @*<div class="product_list_header">
+        <div style="cursor: pointer;">
+            <span class="glyphicon glyphicon-shopping-cart my-cart-icon">
+                <i class="badge badge-notify my-cart-badge"></i>
+            </span>
+        </div>
+    </div>*@
+    <div class="w3l_header_left">
+        <ul>
+            <li class="dropdown profile_details_drop">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                    <i class="fa fa-user" aria-hidden="true"></i>
+                    <span class="caret"></span>
+                </a>
+                <div class="mega-dropdown-menu">
+                    <div class="w3ls_vegetables">
+                        <ul class="dropdown-menu drp-mnu">
+                            @if (User.Identity.Name == "Niki")
+                            {
+                                <li>
+                                    <a href="/admin/roles">
+                                        پنل ادمین
+                                    </a>
+                                </li>
+                            }
+                            @if (User.Identity.IsAuthenticated)
+                            {
+                                <li>
+                                    <a href="/Users/Home/Index/@User.Identity.Name">
+                                        پنل کاربری
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="/Logout">
+                                        خروج
+                                    </a>
+                                </li>
+                            }
+                            else
+                            {
+                                <li>
+                                    <a href="/Login">
+                                        ورود
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="/Register">
+                                        ثبت نام
+                                    </a>
+                                </li>
+                            }
+                        </ul>
+
+
+                    </div>
+
+                </div>
+
+            </li>
+        </ul>
+
+    </div>
+
+    <div class="w3l_header_left1">
+        <h2><a href="/Contact">تماس با ما</a></h2>
+    </div>
+    @if (User.Identity.IsAuthenticated)
+    {
+        <div class="w3l_header_left1" style="color: white">
+            <label>@User.Identity.Name عزیز خوش آمدید</label>
+        </div>
+    }
+    <div class="clearfix"> </div>
+</div>

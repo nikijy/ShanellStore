@@ -1,0 +1,121 @@
+﻿@using System.Linq
+@using Microsoft.AspNetCore.Http
+@using ShanellStore.Core.Convertors
+@using ShanellStore.Core.DTOs.User
+@using ShanellStore.DataLayer.Entities.Orders
+@model IEnumerable<ShanellStore.Core.DTOs.User.ShowOrderViewModel>
+@{
+    ViewData["Title"] = "ShowOrders";
+    Layout = "~/Areas/Users/Views/Shared/_UserLayout.cshtml";
+}
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<div class="col-lg-12">
+    <h3>لطفا آدرس خود را در قسمت  <a href="/Users/Home/ShowUserInfo">مشخصات کامل </a>وارد کنید</h3>
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            لیست محصولات
+        </div>
+        <!-- /.panel-heading -->
+        <div class="panel-body">
+            <div class="table-responsive">
+                <table class="table table-hover">
+                    <thead>
+                        <tr>
+                            <th>نام محصول</th>
+                            <th>تعداد</th>
+                            <th>قیمت واحد</th>
+                            <th>قیمت با تخفیف</th>
+                            <th>قیمت کل</th>
+                            <th>نام برند</th>
+                            <th>سایز محصول</th>
+                            <th>رنگ محصول</th>
+                            <th>تاریخ ثبت</th>
+                            <th>وضعیت پرداخت</th>
+                            <th>دستورات</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model)
+                        {
+
+                            <tr>
+                                <td>@item.Name</td>
+                                <td>@item.Count</td>
+                                <td class="Price">@item.Price.ToString("#,0")</td>
+                                @if (item.DiscountedPrice != 0)
+                                {
+                                    <td>@item.DiscountedPrice.ToString("#,0")</td>
+                                }
+                                else
+                                {
+                                    <td>
+                                        <p>محصول بدون تخفیف</p>
+                                    </td>
+                                }
+                                <td class="SumPrice">@item.Sum.ToString("#,0")</td>
+                                <td>@item.Brand</td>
+                                <td>@item.Size</td>
+                                <td>@item.Color</td>
+                                <td>@item.CreateDate.ToShamsi()</td>
+                                @if (item.IsFinally)
+                                {
+                                    <td class="text-success"><i class="glyphicon glyphicon-ok"></i></td>
+                                }
+                                else
+                                {
+                                    <td class="text-danger "><i class="glyphicon glyphicon-remove"></i></td>
+                                }
+
+                                <td>
+                                    @if (item.IsAvailable == false)
+                                    {
+                                        <button type="button" class="btn btn-sm btn-success disabled" data-toggle="tooltip" data-original-title="محصول به اتمام رسیده است">اتمام موجودیت</button>
+                                    }
+                                    else
+                                    {
+                                        <a class="btn btn-sm btn-success" href="/Users/Orders/Command/@item.OrderDetailId?command=up">افزایش</a>
+
+                                    }
+                                    <a class="btn btn-sm btn-warning" href="/Users/Orders/Command/@item.OrderDetailId?command=down">کاهش</a>
+                                    <a class="btn btn-sm btn-danger" asp-action="Delete" asp-controller="Orders" asp-area="Users" asp-route-id="@item.OrderDetailId">
+                                        حذف
+                                    </a>
+
+                                </td>
+
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+                <div class="col-md-6">
+                    <div class="text-left col-md-3">جمع کل : </div>
+                    <p class="col-md-3">
+                        @Model.Sum(s => s.Sum).ToString("#,0 تومان")
+
+                    </p>
+                </div>
+                @if (Model.Any())
+                {
+                    <div class="col-lg-5">
+                        <a class="btn btn-success" href="/Users/Orders/Payment">پرداخت نهایی</a>
+
+                    </div>
+                }
+
+                <!-- /.table-responsive -->
+            </div>
+            <!-- /.panel-body -->
+        </div>
+        <!-- /.panel -->
+    </div>
+</div>
+
+@*<script>
+        $('.Count').on('keyup change', function () {
+            //get closest tr -> find price class get value
+            var tot = $(this).closest("tr").find('.Price').text() * this.value;
+            $(this).closest("tr").find('.SumPrice').text(tot); //set value
+        });
+    </script>*@

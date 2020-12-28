@@ -1,0 +1,88 @@
+﻿@using ShanellStore.Core.Convertors
+@model IEnumerable<ShanellStore.DataLayer.Entities.User.UserMessage>
+
+@{
+    ViewData["Title"] = "UserMessages";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h1>پیام های کاربران</h1>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Email)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Website)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Text)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CreateDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.IsDeleted)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Email)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Website)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Text)
+                </td>
+                <td>
+                  <label>@item.CreateDate.Value.ToShamsi()</label>
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.IsDeleted)
+                </td>
+                <td>
+                    <a asp-action="UserMessagesDetails" asp-route-id="@item.UM_Id">جزئیات</a> |
+                    <a asp-action="DeleteUserMessage" asp-route-id="@item.UM_Id">حذف</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+@if (ViewBag.count > 1)
+{
+    <nav>
+        <ul class="pagination">
+            @if (ViewBag.PageCount % 10 != 0)
+            {
+                @for (int i = 1; i <= ((int)ViewBag.PageCount + 1); i++)
+                {
+                    <li class="@(((int) ViewBag.PageID == i) ? "active" : "")"><a class="page-link" href="/Admin/Users/UserMessages?pageId=@i">@i</a></li>
+
+                }
+            }
+
+            else
+            {
+                @for (int i = 1; i <= (int)ViewBag.PageCount; i++)
+                {
+                    <li class="@(((int)ViewBag.PageID==i)?"active":"")"><a class="page-link" href="/Admin/Users/UserMessages?pageId=@i">@i</a></li>
+
+                }
+            }
+        </ul>
+    </nav>
+}

@@ -1,0 +1,38 @@
+﻿@model ShanellStore.DataLayer.Entities.Orders.UserOrder
+@{
+    ViewData["Title"] = "EditInformation";
+    Layout = "~/Areas/Users/Views/Shared/_UserLayout.cshtml";
+}
+
+<form asp-action="EditInformation" asp-controller="Home" asp-area="Users" method="post">
+
+    <input type="hidden" asp-for="UO_Id" />
+
+    S<div asp-validation-summary="All"></div>
+    <div class="col-md-6">
+        <div class="form-group">
+            <label>نام</label>
+            <input asp-for="Name" class="form-control">
+        </div>
+        <div class="form-group">
+            <label>نام خانوادگی</label>
+            <input asp-for="LastName" class="form-control">
+        </div>
+        <div class="form-group">
+            <label>شماره همراه</label>
+            <input asp-for="Phone" class="form-control">
+        </div>
+        <div class="form-group">
+            <label>آدرس کامل</label>
+            <input asp-for="Address" class="form-control">
+        </div>
+        <div class="form-group">
+            <label>کد پستی</label>
+            <input asp-for="PostCode" class="form-control">
+        </div>
+        <input type="submit" value="ثبت" class="btn btn-success" />
+    </div>
+
+</form>
+
+

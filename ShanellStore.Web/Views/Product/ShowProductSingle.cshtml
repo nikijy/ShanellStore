@@ -1,0 +1,118 @@
+﻿@model ShanellStore.DataLayer.Entities.Product.Product
+@{
+    ViewData["Title"] = "ShowProductSingle";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="agileinfo_single">
+
+    <!--<form action="/Users/Orders/AddOrdersToBasket/@Model.ProductId" method="post">-->
+    @*<form asp-controller="Orders" asp-action="AddOrdersToBasket" asp-route-id="@Model.ProductId" method="post">*@
+    <!--<h5>@Model.Name</h5>
+    <div class="col-md-4 agileinfo_single_right">
+        <img id="example" src="/ProductImages/@Model.ImageName" alt=" " class="img-responsive">
+    </div>
+    <div class="col-md-8 agileinfo_single_left">
+
+        <div class="w3agile_description">
+            <p>تعداد باقی مانده:@Model.AvailableCount</p>
+            <h4>توضیحات :</h4>
+            <p>
+                @Model.Description
+            </p>
+        </div>
+        <div class="snipcart-item block">
+            <div class="snipcart-thumb agileinfo_single_left_snipcart">
+                @if (Model.DiscountedPrice != null)
+                {
+                    <h4>@Model.DiscountedPrice <span>@Model.Price</span></h4>
+                }
+                else
+                {
+                    <span>@Model.Price</span>
+                }
+            </div>
+
+            <div class="col-md-3">
+                <select asp-for="ProductColorId" name="Color" class="form-control" asp-items="ViewBag.ProductColorId"></select>
+                <select asp-for="ProductColorId" name="Brand" class="form-control" asp-items="ViewBag.ProductBrandId"></select>
+                <select asp-for="ProductColorId" name="Size" class="form-control" asp-items="ViewBag.ProductSizeId"></select>
+            </div>
+
+            <div class="snipcart-details agileinfo_single_left_details">
+                <input type="submit" class="btn btn-danger my-cart-btn hvr-sweep-to-left" data-id="76"
+                       data-name="Pulao basmati rice" data-summary="summary 76" data-price="21.00"
+                       data-quantity="1" data-image="images/76.png" value="افزودن به سبد خرید"/>-->
+    @*<a href="/Users/Orders/AddOrdersToBasket/@Model.ProductId" class="btn btn-danger my-cart-btn hvr-sweep-to-left" data-id="76"
+        data-name="Pulao basmati rice" data-summary="summary 76" data-price="21.00"
+        data-quantity="1" data-image="images/76.png">افزودن به سبد خرید</a>*@
+    <!--</div>
+
+            </div>
+        </div>
+    </form>-->
+
+    <form action="/Users/Orders/AddOrdersToBasket/@Model.ProductId" method="post">
+
+        <div class="col-md-4">
+            <img id="example" src="/ProductImages/@Model.ImageName" alt=" " class="img-responsive">
+        </div>
+
+        <div id="tab" class="col-md-7">
+            <ul id="myTab" class="nav nav-tabs">
+                <li class="active">
+                    <a href="#tab-1" data-toggle="tab">توضیحات</a>
+                </li>
+                <li class="">
+                    <a href="#tab-2" data-toggle="tab">جزئیات محصول</a>
+                </li>
+                <li class="">
+                    <a href="#tab-3" data-toggle="tab">جزئیات خرید</a>
+                </li>
+               
+            </ul>
+            <div class="tab-content push-down-30">
+                <div class="fade tab-pane active in" id="tab-1">
+                    <p style="font-size: 25px"> نام محصول: @Model.Name</p>
+                    <p> @Model.Description</p>
+
+                </div>
+                <div class="fade tab-pane" id="tab-2">
+                    <h5>تعداد باقیمانده:@Model.AvailableCount</h5>
+
+                    <ul style="font-size: 20px;">
+                        <li> سایز: @Model.ProductSize.Size </li>
+                        <li> برند: @Model.ProductBrand.BrandName </li>
+                        <li> رنگ: @Model.ProductColor.Color</li>
+                    </ul>
+                    @if (Model.DiscountedPrice != null)
+                    {
+                        <h4> قیمت: @Model.DiscountedPrice.Value.ToString("#,0") <span style="text-decoration: line-through;">@Model.Price.ToString("#,0")</span></h4>
+                    }
+                    else
+                    {
+                        <span>قیمت: @Model.Price.ToString("#,0")</span>
+                    }
+
+                </div>
+                <div class="fade tab-pane" id="tab-3">
+                    <p>برای خرید محصول ابتدا آن را به سبد خرید اضافه کنید سپس در پنل کاربری خود <a href="/Users/Home/ShowUserInfo"> مشخصات کامل  </a>را تکمیل کنید و بعد از آن با مراجعه به قسمت <a href="/Users/Orders/ShowOrders">سبد خرید</a>اقدام به پرداخت هزینه نمایید</p>
+                    <div class="alert alert-warning">
+                        توجه نمایید که هزینه پست هنگام تحویل محصول درب منزل تحویل گرفته میشود
+                    </div>
+                    <div class="snipcart-details agileinfo_single_left_details">
+                        <input type="submit" class="btn btn-danger my-cart-btn hvr-sweep-to-left" data-id="76"
+                               data-name="Pulao basmati rice" data-summary="summary 76" data-price="21.00"
+                               data-quantity="1" data-image="images/76.png" value="افزودن به سبد خرید"/>
+                    </div>
+
+
+                </div>
+               
+            </div>
+        </div>
+    </form>
+
+    <div class="clearfix"> </div>
+</div>
+

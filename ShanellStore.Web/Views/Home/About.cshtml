@@ -1,0 +1,63 @@
+﻿
+@{
+    ViewData["Title"] = "درباره ما";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<div class="products-breadcrumb">
+    <div class="container">
+        <ul>
+            <li><i class="fa fa-home" aria-hidden="true"></i><a href="/Home/Index">صفحه اصلی</a><span>|</span></li>
+            <li>درباره ما</li>
+        </ul>
+    </div>
+</div>
+
+
+
+<div class="banner">
+    <div class="w3l_banner_nav_right">
+        <nav class="navbar nav_bottom">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header nav_2">
+                <button type="button" class="navbar-toggle collapsed navbar-toggle1" data-toggle="collapse" data-target="#bs-megadropdown-tabs">
+                    <span class="sr-only">تعویض ناوبری</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+            </div>
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            @await Component.InvokeAsync("CategoryComponent")
+            <!--ترجمه شده توسط مرجع تخصصی برنامه نویسان-->
+        </nav>
+    </div>
+    <div class="w3l_banner_nav_left">
+        <!-- about -->
+        <div class="privacy about">
+            <h3>درباره ما</h3>
+            <p class="animi">این فروشگاه واقع در اصفهان کار خود را از سال 1398 آغاز کرد و تا بحال مشتریان از خدمات این فروشگاه رضایتمندی کامل را داشتند.برخی از خدمات این فروشگاه شامل موارد زیر میباشد:</p>
+            <div class="agile_about_grids">
+                <div class="col-md-6 agile_about_grid_left">
+
+                    <img src="~/images/139712231103132516904154.jpg" alt=" " class="img-responsive"/>
+                </div>
+                <div class="col-md-6 agile_about_grid_right">
+                    <ol>
+                        <li>تحویل به موقع محصول </li>
+                        <li>امکان پس گرفتن محصول در صورت نارضایتی مشتری</li>
+                        <li>راهنمای 24 ساعته</li>
+                        <li>حراج های مناسب</li>
+                        <li>رفتار مناسب با مشتریان</li>
+                        <li>ارسال به تمامی نقاط کشور</li>
+                    </ol>
+                </div>
+                <div class="clearfix"> </div>
+            </div>
+        </div>
+        <!-- //about -->
+    </div>
+    <div class="clearfix"></div>
+</div>
+

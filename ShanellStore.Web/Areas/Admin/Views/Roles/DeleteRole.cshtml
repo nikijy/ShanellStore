@@ -1,0 +1,20 @@
+﻿@model ShanellStore.DataLayer.Entities.User.Role
+@{
+    ViewData["Title"] = "DeleteRole";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="container alert alert-danger">
+    <form asp-action="DeleteRole" asp-controller="Roles" asp-area="Admin" method="post">
+        <input type="hidden" asp-for="RoleId" />
+        <input type="hidden" asp-for="IsDeleted" />
+        <input type="hidden" asp-for="RoleTitle" />
+        <h5>آیا از حذف این مورد مطمئن هستید؟</h5>
+        <p>
+            <label asp-for="RoleTitle">@Model.RoleTitle</label>
+            <input type="submit" value="حذف" class="btn btn-outline btn-danger"/>
+        </p>
+    </form>
+</div>
+
+

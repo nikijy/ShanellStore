@@ -1,0 +1,13 @@
+﻿@model IEnumerable<ShanellStore.DataLayer.Entities.Product.Category>
+
+<ul class="w3_footer_grid_list">
+   @foreach (var item in Model)
+   {
+       <li>
+           <a href="/Product/ShowProductsByCategoryId/@item.CategoryId">
+               @item.Title
+           </a>
+       </li>
+   
+   }
+</ul>

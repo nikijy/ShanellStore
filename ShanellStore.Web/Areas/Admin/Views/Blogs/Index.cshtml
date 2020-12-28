@@ -1,0 +1,84 @@
+﻿@using ShanellStore.Core.Convertors
+@model IEnumerable<ShanellStore.Core.DTOs.Blog.BlogViewModel>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h1>بلاگ ها</h1>
+
+<p>
+    <a asp-action="Create">ایجاد بلاگ جدید</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.CreateDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ShortDescription)
+            </th>
+           
+            <th>
+                @Html.DisplayNameFor(model => model.ImageName)
+            </th>
+          
+            <th>
+                @Html.DisplayNameFor(model => model.UserName)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+    @foreach (var item in Model) {
+        <tr>
+            <td>
+                <label>@item.CreateDate.Value.ToShamsi()</label>
+            </td>
+         
+            <td>
+                @Html.DisplayFor(modelItem => item.ShortDescription)
+            </td>
+            <td>
+                <img src="/BlogImages/@item.ImageName" class="thumbnail" style="max-width: 100px"/>
+            </td>
+          
+            <td>
+                @Html.DisplayFor(modelItem => item.UserName)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.BlogId">ویرایش </a> |
+                <a asp-action="Details" asp-route-id="@item.BlogId">جزئیات </a> |
+                <a asp-action="Delete" asp-route-id="@item.BlogId">حذف </a>
+            </td>
+        </tr>
+    }
+    </tbody>
+
+</table>
+@if (ViewBag.count > 1)
+{
+    <nav>
+        <ul class="pagination">
+            @if (ViewBag.PageCount % 12 != 0)
+            {
+                @for (int i = 1; i <= ((int) ViewBag.PageCount + 1); i++)
+                {
+                    <li class="@(((int) ViewBag.PageID == i) ? "active" : "")"><a class="page-link" href="/Admin/Blogs/Index?pageId=@i">@i</a></li>
+
+                }
+            }
+
+            else
+            {
+                @for (int i = 1; i <= (int)ViewBag.PageCount; i++)
+                {
+                    <li class="@(((int)ViewBag.PageID==i)?"active":"")"><a class="page-link" href="/Admin/Blogs/Index?pageId=@i">@i</a></li>
+
+                }
+            }
+        </ul>
+    </nav>
+}

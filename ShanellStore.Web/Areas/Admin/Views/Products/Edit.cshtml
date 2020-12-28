@@ -1,0 +1,84 @@
+﻿@model ShanellStore.DataLayer.Entities.Product.Product
+
+@{
+    ViewData["Title"] = "Edit";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h1>ویرایش محصول</h1>
+
+
+<div class="row">
+    <div class="col-md-12">
+        <form asp-action="Edit" enctype="multipart/form-data">
+            <input type="hidden" asp-for="CreateDate"/>
+            <input type="hidden" asp-for="IsDeleted"/>
+            <input type="hidden" asp-for="DiscountedPrice"/>
+            <input type="hidden" asp-for="IsAvailable" value="true"/>
+
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="ProductId"/>
+            <div class="form-group">
+                <label asp-for="CategoryId" class="control-label"></label>
+                <select asp-for="CategoryId" class="form-control" asp-items="ViewBag.CategoryId"></select>
+                <span asp-validation-for="CategoryId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ProductBrandId" class="control-label"></label>
+                <select asp-for="ProductBrandId" class="form-control" asp-items="ViewBag.ProductBrandId"></select>
+                <span asp-validation-for="ProductBrandId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ProductColorId" class="control-label"></label>
+                <select asp-for="ProductColorId" class="form-control" asp-items="ViewBag.ProductColorId"></select>
+                <span asp-validation-for="ProductColorId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ProductSizeId" class="control-label"></label>
+                <select asp-for="ProductSizeId" class="form-control" asp-items="ViewBag.ProductSizeId"></select>
+                <span asp-validation-for="ProductSizeId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Price" class="control-label"></label>
+                <input asp-for="Price" class="form-control"/>
+                <span asp-validation-for="Price" class="text-danger"></span>
+            </div>
+           
+            <div class="form-group">
+                <label asp-for="AvailableCount" class="control-label"></label>
+                <input type="number" min="1" asp-for="AvailableCount" class="form-control"/>
+                <span asp-validation-for="AvailableCount" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Name" class="control-label"></label>
+                <input asp-for="Name" class="form-control"/>
+                <span asp-validation-for="Name" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ShortDescription" class="control-label"></label>
+                <textarea asp-for="ShortDescription" class="form-control"></textarea>
+                <span asp-validation-for="ShortDescription" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Description" class="control-label"></label>
+                <input asp-for="Description" class="form-control"/>
+                <span asp-validation-for="Description" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ImageName" class="control-label"></label>
+                <input type="file" name="image" class="form-control"/>
+                <img src="/ProductImages/@Model.ImageName" class="thumbnail" style="max-width: 100px;"/>
+                <span asp-validation-for="ImageName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="DiscountPercent" class="control-label"></label>
+                <input asp-for="DiscountPercent" class="form-control"/>
+                <span asp-validation-for="DiscountPercent" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="ثبت" class="btn btn-primary"/>
+            </div>
+        </form>
+    </div>
+</div>
+

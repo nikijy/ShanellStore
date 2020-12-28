@@ -1,0 +1,95 @@
+﻿@model ShanellStore.DataLayer.Entities.User.UserMessage
+@{
+    ViewData["Title"] = "تماس با ما";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="products-breadcrumb">
+    <div class="container">
+        <ul>
+            <li><i class="fa fa-home" aria-hidden="true"></i><a href="/Home/Index">صفحه اصلی</a><span>|</span></li>
+            <li>تماس با ما</li>
+        </ul>
+    </div>
+</div>
+
+
+
+<div class="banner">
+
+    <div class="w3l_banner_nav_right">
+        <nav class="navbar nav_bottom">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header nav_2">
+                <button type="button" class="navbar-toggle collapsed navbar-toggle1" data-toggle="collapse" data-target="#bs-megadropdown-tabs">
+                    <span class="sr-only">تعویض ناوبری</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+            </div>
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            @await Component.InvokeAsync("CategoryComponent")
+            <!--ترجمه شده توسط مرجع تخصصی برنامه نویسان-->
+        </nav>
+    </div>
+    <div class="w3l_banner_nav_left">
+        <!-- mail -->
+        <!--ترجمه شده توسط مرجع تخصصی برنامه نویسان-->
+        <div class="mail">
+            
+           
+            <h3>تماس با ما</h3>
+            @if (ViewBag.success != null)
+            {
+                <div>
+                    <p class="text-success">@ViewBag.success</p>
+                </div>
+            }
+            <div class="agileinfo_mail_grids">
+                <div class="col-md-4 agileinfo_mail_grid_right">
+                    <ul>
+                        <li><i class="fa fa-home" aria-hidden="true"></i></li>
+                        <li>آدرس<span>اصفهان-بهارستان</span></li>
+                    </ul>
+                    <ul>
+                        <li><i class="fa fa-envelope" aria-hidden="true"></i></li>
+                        <li>ایمیل<span><a href="mailto:ShanellStore@gmail.com">shanellstore@gmail.com</a></span></li>
+                    </ul>
+                    <ul>
+                        <li><i class="fa fa-phone" aria-hidden="true"></i></li>
+                        <li>تماس با ما<span>
+                            1874 682 935 (98+)
+                        </span></li>
+                    </ul>
+                </div>
+                <div class="col-md-8 agileinfo_mail_grid_left">
+
+
+                    <form action="Contact" method="post">
+                        <input type="hidden" asp-for="CreateDate"/>
+                        <input type="hidden" asp-for="IsDeleted"/>
+
+                        <div class="col-md-6 wthree_contact_right_grid">
+                            <input type="text" name="Name" placeholder="نام*">
+                            <input type="email" name="Email"  placeholder="ایمیل*">
+                        </div>
+                        <div class="col-md-6 wthree_contact_right_grid">
+                            <input type="text" name="Website"  placeholder="وبسایت">
+                        </div>
+                        <div class="clearfix"> </div>
+                        <textarea name="Text">پیام...</textarea>
+                        <input type="submit" value="ارسال">
+                        <div asp-validation-summary="All"></div>
+                    </form>
+
+
+                </div>
+                <div class="clearfix"> </div>
+            </div>
+        </div>
+        <!-- //mail -->
+    </div>
+    <div class="clearfix"></div>
+</div>
+

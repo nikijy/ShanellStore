@@ -1,0 +1,115 @@
+﻿@model IEnumerable<ShanellStore.DataLayer.Entities.Product.Category>
+<partial name="_Slider"/>
+    <link rel="stylesheet" href="/css/flexslider.css" type="text/css" media="screen" property="" />
+    <script defer src="/js/jquery.flexslider.js"></script>
+    <script type="text/javascript">
+        $(window).load(function () {
+            $('.flexslider').flexslider({
+                animation: "slide",
+                start: function (slider) {
+                    $('body').removeClass('loading');
+                }
+            });
+        });
+    </script>
+
+
+<!-- banner -->
+<!--ترجمه شده توسط مرجع تخصصی برنامه نویسان-->
+<div class="banner_bottom">
+    <div class="wthree_banner_bottom_right_grid_sub">
+    </div>
+    <div class="wthree_banner_bottom_right_grid_sub1">
+        <div class="col-md-4 wthree_banner_bottom_right">
+            <div class="wthree_banner_bottom_right_grid">
+
+                <img src="~/images/139712231103132516904154.jpg" alt=" " class="img-responsive" style="width: 500px; height: 300px;" />
+                <div class="wthree_banner_bottom_right_grid_pos">
+                    <h4>
+                        ارائه تخفیف<span>25%</span>
+                    </h4>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4 wthree_banner_bottom_right">
+            <div class="wthree_banner_bottom_right_grid">
+
+                <img src="~/images/-هودی-زنانه-18-e1585036181585.jpg" alt=" " class="img-responsive" style="width: 500px; height: 300px;"/>
+                <div class="wthree_banner_btm_pos">
+                    <h3>
+                        معرفی<span>
+                            بهترین فروشگاه
+                        </span>برای<i> پوشاک </i>
+                    </h3>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4 wthree_banner_bottom_right">
+            <div class="wthree_banner_bottom_right_grid">
+
+                <img src="~/images/dress4.jpg" alt=" " class="img-responsive" style="width: 500px; height: 300px;" />
+                <div class="wthree_banner_btm_pos1">
+                    <h3>صرفه جویی<span>تا حد</span> 50%</h3>
+                </div>
+            </div>
+        </div>
+        <div class="clearfix"> </div>
+    </div>
+    <div class="clearfix"> </div>
+</div>
+<!-- top-brands -->
+<!--ترجمه شده توسط مرجع تخصصی برنامه نویسان-->
+@await Component.InvokeAsync("OfferedComponent")
+<!-- //top-brands -->
+<!--ترجمه شده توسط مرجع تخصصی برنامه نویسان-->
+<!-- fresh-vegetables -->
+<div class="fresh-vegetables">
+    <div class="container">
+        <h3>محصولات بالا</h3>
+        <div class="w3l_fresh_vegetables_grids">
+            @await Component.InvokeAsync("BrandComponent")
+            <div class="col-md-9 w3l_fresh_vegetables_grid_left">
+                <div class="col-md-4 w3l_fresh_vegetables_grid">
+                    <div class="w3l_fresh_vegetables_grid1">
+                        <img src="~/images/119662784.jpg" alt=" " class="img-responsive" />
+                      
+                    </div>
+                </div>
+                <div class="col-md-4 w3l_fresh_vegetables_grid">
+                    <div class="w3l_fresh_vegetables_grid1">
+                        <div class="w3l_fresh_vegetables_grid1_rel">
+                            <img src="~/images/sweatshirt-15.jpg" alt=" " class="img-responsive"  />
+                            <div class="w3l_fresh_vegetables_grid1_rel_pos">
+                                <div class="more m1">
+                                    <a href="/Products" class="button--saqui button--round-l button--text-thick" data-text="Shop now">
+                                        همین حالا خرید کنید
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="w3l_fresh_vegetables_grid1_bottom">
+
+                        <img src="~/images/d987d988d8afdb8c-d985d8b1d8afd8a7d986d987-d8aadb8cd8a8d988db8cd8b2-daa9d8af-1_5e144f739c881.jpeg" alt=" " class="img-responsive"  />
+                        <div class="w3l_fresh_vegetables_grid1_bottom_pos">
+                            <h5><a href="/OfferedProducts">پیشنهادهای ویژه</a></h5>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 w3l_fresh_vegetables_grid">
+                    <div class="w3l_fresh_vegetables_grid1">
+
+                        <img src="~/images/پیراهن-نخی-ساده-مردانه.jpg" alt=" " class="img-responsive"  />
+                    </div>
+                    <div class="w3l_fresh_vegetables_grid1_bottom">
+                        <img src="~/images/117318432.jpg" alt=" " class="img-responsive" />
+                    
+                    </div>
+                </div>
+                <div class="clearfix"> </div>
+            </div>
+            <div class="clearfix"> </div>
+        </div>
+    </div>
+</div>
+<!-- //fresh-vegetables -->

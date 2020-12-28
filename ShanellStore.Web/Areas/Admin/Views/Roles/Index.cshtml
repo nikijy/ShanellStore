@@ -1,0 +1,46 @@
+﻿@model IEnumerable<ShanellStore.DataLayer.Entities.User.Role>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="col-md-12">
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            لیست نقش ها
+        </div>
+        <!-- /.panel-heading -->
+        <a class="btn btn-success" href="/Admin/Roles/CreateRole">ایجاد نقش جدید</a>
+        <div class="panel-body">
+            <div class="table-responsive">
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th>عنوان نقش</th>
+                            <th>دستورات</th>
+                           
+                        </tr>
+                    </thead>
+                    <tbody>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>@item.RoleTitle</td>
+                            <td>
+                                <a href="/Admin/Roles/EditRole/@item.RoleId" class="btn btn-warning">ویرایش</a>
+                                <a href="/Admin/Roles/DeleteRole/@item.RoleId" class="btn btn-danger">حذف</a>
+                            </td>
+                      
+                        </tr>
+                    }
+
+                    </tbody>
+                </table>
+            </div>
+            <!-- /.table-responsive -->
+        </div>
+        <!-- /.panel-body -->
+    </div>
+    <!-- /.panel -->
+</div>
+

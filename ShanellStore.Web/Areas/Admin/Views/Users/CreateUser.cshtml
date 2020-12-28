@@ -1,0 +1,36 @@
+﻿@using ShanellStore.DataLayer.Entities.User
+@using ShanellStore.Web.Areas.Admin.Controllers
+@model ShanellStore.DataLayer.Entities.User.User
+@{
+    ViewData["Title"] = "CreateUser";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+    List<Role> Roles = ViewData["Roles"] as List<Role>;
+}
+
+<form asp-action="CreateUser" asp-controller="Users" asp-area="Admin" method="post">
+    <div class="form-group">
+        <label>نام کاربری</label>
+        <input class="form-control" asp-for="UserName">
+    </div>
+    <div class="form-group">
+        <label>ایمیل</label>
+        <input class="form-control" asp-for="Email">
+    </div>
+    <div class="form-group">
+        <label>کلمه عبور</label>
+        <input class="form-control" asp-for="Password">
+    </div>
+    <div class="form-group">
+        <label>انتخاب نقش کاربر</label>
+        @foreach (var item in Roles)
+        {
+            <div class="checkbox">
+                <label>
+                    <input type="checkbox" name="SelectedRoles" value="@item.RoleId">@item.RoleTitle
+                </label>
+            </div>
+        }
+
+    </div>
+    <input type="submit" value="ذخیره اطلاعات" class="btn btn-success"/>
+</form>

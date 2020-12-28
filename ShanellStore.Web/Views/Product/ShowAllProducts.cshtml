@@ -1,0 +1,94 @@
+﻿@model List<ShanellStore.Core.DTOs.Product.ProductViewModel>
+@{
+    ViewData["Title"] = "ShowAllProducts";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="col-md-12">
+    <div class="products-breadcrumb">
+        <div class="container">
+            <ul>
+                <li><i class="fa fa-home" aria-hidden="true"></i><a href="/Home/Index">صفحه اصلی</a><span>|</span></li>
+                <li>تمام محصولات</li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+
+<div class="w3ls_w3l_banner_nav_left_grid">
+    <h3>لیست محصولات ما </h3>
+    <div class="w3ls_w3l_banner_nav_left_grid1">
+        @foreach (var item in Model)
+        {
+            <div class="col-md-3 w3ls_w3l_banner_right">
+                <div class="hover14 column">
+                    <div class="agile_top_brand_right_grid w3l_agile_top_brand_right_grid">
+                        <div class="agile_top_brand_right_grid_pos">
+                        </div>
+                        <div class="agile_top_brand_right_grid1">
+                            <figure>
+                                <div class="snipcart-item block">
+                                    <div class="snipcart-thumb">
+                                        <a href="/ProductDetail/@item.ProductId"><img src="/ProductImages/@item.ImageName" alt=" " class="img-responsive"></a>
+                                        <p>@item.Name</p>
+                                        @if (item.DiscountedPrice != null)
+                                        {
+                                            <h4>@item.DiscountedPrice.Value.ToString("#,0") <span>@item.Price.ToString("#,0")</span></h4>
+                                        }
+                                        else
+                                        {
+                                            <span>@item.Price.ToString("#,0")</span>
+                                        }
+                                    </div>
+                                    <div class="snipcart-details">
+                                        <a href="/ProductDetail/@item.ProductId" class="btn btn-danger my-cart-btn hvr-sweep-to-left" data-id="5" data-name="Knorr instant soup" data-summary="summary 5" data-price="3.00" data-quantity="1" data-image="images/5.png">مشاهده</a>
+                                    </div>
+                                </div>
+                            </figure>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        }
+
+
+        <div class="clearfix"> </div>
+    </div>
+    @*<nav>
+            <ul class="pagination">
+                <li class="disabled"><a aria-label="Previous" href="#"><span aria-hidden="true">«</span></a></li>
+                @for (int i = 1; i <= (ViewBag.PageCount+1); i++)
+                {
+                    <li class="@(((int)ViewBag.PageID==i)?"active":"")"><a href="/Products/pageId=@i">@i<span class="sr-only">(current)</span></a></li>
+                }
+
+                <li><a aria-label="Next" href="#"><span aria-hidden="true">»</span></a></li>
+            </ul>
+        </nav>*@
+
+    @if (ViewBag.count > 1)
+    {
+        <nav>
+            <ul class="pagination">
+                @if (ViewBag.PageCount % 12 != 0)
+                {
+                    @for (int i = 1; i <= ((int)ViewBag.PageCount + 1); i++)
+                    {
+                        <li class="@(((int) ViewBag.PageID == i) ? "active" : "")"><a class="page-link" href="/Products?pageId=@i">@i</a></li>
+
+                    }
+                }
+
+                else
+                {
+                    @for (int i = 1; i <= (int)ViewBag.PageCount; i++)
+                    {
+                        <li class="@(((int)ViewBag.PageID==i)?"active":"")"><a class="page-link" href="/Products?pageId=@i">@i</a></li>
+
+                    }
+                }
+            </ul>
+        </nav>
+    }
+</div>

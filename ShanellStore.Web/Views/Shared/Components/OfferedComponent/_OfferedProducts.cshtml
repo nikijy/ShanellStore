@@ -1,0 +1,37 @@
+﻿@model IEnumerable<ShanellStore.Core.DTOs.Product.ProductViewModel>
+
+<div class="top-brands">
+    <div class="container">
+        <h3>پیشنهاد ویژه</h3>
+        <div class="agile_top_brands_grids">
+
+          @foreach (var item in Model)
+          {
+              <div class="col-md-3 top_brand_right">
+                  <div class="hover14 column">
+                      <div class="agile_top_brand_right_grid">
+                          <div class="tag"><img src="/images/tag.png" alt=" " class="img-responsive"/></div>
+                          <div class="agile_top_brand_right_grid1">
+                              <figure>
+                                  <div class="snipcart-item block">
+                                      <div class="snipcart-thumb">
+                                          <a href="/ProductDetail/@item.ProductId"><img src="/ProductImages/@item.ImageName" alt=" " class="img-responsive"></a>     
+                                          <p>@item.Name</p>
+                                          <h4>@item.DiscountedPrice <span>@item.Price</span></h4>
+                                      </div>
+                                      <div class="snipcart-details top_brand_home_details">
+                                          <a href="/ProductDetail/@item.ProductId" class="btn btn-danger my-cart-btn hvr-sweep-to-left" data-id="5" data-name="Knorr instant soup" data-summary="summary 5" data-price="3.00" data-quantity="1" data-image="images/5.png">مشاهده</a>
+
+                                      </div>
+                                  </div>
+                              </figure>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          }
+         
+            <div class="clearfix"> </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,24 @@
+﻿
+<div class="newsletter">
+    <div class="container">
+        <div class="w3agile_newsletter_right">
+            <h3>برای دریافت خبرنامه ما ثبت نام کنید</h3>
+            @if (TempData["message"] != null)
+            {
+                <p style="color: green;">@TempData["message"]</p>
+            }
+            @if (TempData["error"] != null)
+            {
+                <p style="color: red;">@TempData["error"]</p>
+            }
+        </div>
+        <div class="w3agile_newsletter_left">
+            <form action="/Home/AddEmailForNewsLetter" method="post">
+                <input type="hidden" />
+                <input type="email" name="Email" placeholder="ایمیل">
+                <input type="submit" value="تایید">
+            </form>
+        </div>
+        <div class="clearfix"> </div>
+    </div>
+</div>

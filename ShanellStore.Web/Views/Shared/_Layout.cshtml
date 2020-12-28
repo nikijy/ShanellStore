@@ -1,0 +1,153 @@
+﻿<!--ترجمه شده توسط مرجع تخصصی برنامه نویسان-->
+<!DOCTYPE html>
+<html>
+<head>
+    <title>فروشگاه شانل</title>
+    <!-- for-mobile-apps -->
+    <partial name="_MetaTags" />
+    <script type="application/x-javascript">
+        addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false);
+               function hideURLbar(){ window.scrollTo(0,1); } </script>
+    <!-- //for-mobile-apps -->
+    <link href="/css/bootstrap.css" rel="stylesheet" type="text/css" media="all" />
+    <link href="/css/style.css" rel="stylesheet" type="text/css" media="all" />
+    <!-- font-awesome icons -->
+    <link href="/css/font-awesome.css" rel="stylesheet" type="text/css" media="all" />
+    <!-- //font-awesome icons -->
+    <!-- js -->
+    <script src="/js/jquery-1.11.1.min.js"></script>
+    <!-- //js -->
+    <link href='//fonts.googleapis.com/css?family=Ubuntu:400,300,300italic,400italic,500,500italic,700,700italic' rel='stylesheet' type='text/css'>
+    <link href='//fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,400italic,600,600italic,700,700italic,800,800italic' rel='stylesheet' type='text/css'>
+    <!-- start-smoth-scrolling -->
+    <script type="text/javascript" src="/js/move-top.js"></script>
+    <script type="text/javascript" src="/js/easing.js"></script>
+    <script type="text/javascript">
+        jQuery(document).ready(function ($) {
+            $(".scroll").click(function (event) {
+                event.preventDefault();
+                $('html,body').animate({ scrollTop: $(this.hash).offset().top }, 1000);
+            });
+        });
+    </script>
+    <!-- start-smoth-scrolling -->
+    <!--ترجمه شده توسط مرجع تخصصی برنامه نویسان-->
+</head>
+
+<body>
+    <!-- header -->
+    <partial name="_PageTop" />
+    <!-- script-for sticky-nav -->
+    <!--ترجمه شده توسط مرجع تخصصی برنامه نویسان-->
+    <script>
+        $(document).ready(function () {
+            var navoffeset = $(".agileits_header").offset().top;
+            $(window).scroll(function () {
+                var scrollpos = $(window).scrollTop();
+                if (scrollpos >= navoffeset) {
+                    $(".agileits_header").addClass("fixed");
+                } else {
+                    $(".agileits_header").removeClass("fixed");
+                }
+            });
+
+        });
+    </script>
+    <!-- //script-for sticky-nav -->
+    <!--ترجمه شده توسط مرجع تخصصی برنامه نویسان-->
+    <partial name="_MainMenu" />
+    <!-- //header -->
+    <!-- products-breadcrumb -->
+    @RenderBody()
+    <!-- //banner -->
+    <!--ترجمه شده توسط مرجع تخصصی برنامه نویسان-->
+    <!-- newsletter-top-serv-btm -->
+   
+    <!-- //newsletter-top-serv-btm -->
+    <!--ترجمه شده توسط مرجع تخصصی برنامه نویسان-->
+    <!-- newsletter -->
+<partial name="_NewsLetter" />
+    <!-- //newsletter -->
+    <!-- footer -->
+  
+    <partial name="_Footer" />
+    <!-- //footer -->
+ 
+    <!-- Bootstrap Core JavaScript -->
+    <script src="/js/bootstrap.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $(".dropdown").hover(
+                function () {
+                    $('.dropdown-menu', this).stop(true, true).slideDown("fast");
+                    $(this).toggleClass('open');
+                },
+                function () {
+                    $('.dropdown-menu', this).stop(true, true).slideUp("fast");
+                    $(this).toggleClass('open');
+                }
+            );
+        });
+    </script>
+    <script type="text/javascript" id="snipcart" src="/js/snipcart.js" data-api-key="ZGQxNzVjZTItOWRmNS00YjJhLTlmNGUtMDE4NjdiY2RmZGNj"></script>
+    <!-- here stars scrolling icon -->
+    <script type="text/javascript">
+        $(document).ready(function () {
+            /*
+                var defaults = {
+                containerID: 'toTop', // fading element id
+                containerHoverID: 'toTopHover', // fading element hover id
+                scrollSpeed: 1200,
+                easingType: 'linear'
+                };
+            */
+
+            $().UItoTop({ easingType: 'easeOutQuart' });
+
+        });
+    </script>
+    <!-- //here ends scrolling icon -->
+    <!--ترجمه شده توسط مرجع تخصصی برنامه نویسان-->
+    <script type='text/javascript' src="/js/jquery.mycart.js"></script>
+<script type="text/javascript">
+    $(function () {
+
+        var goToCartIcon = function ($addTocartBtn) {
+            var $cartIcon = $(".my-cart-icon");
+            var $image = $('<img width="30px" height="30px" src="' + $addTocartBtn.data("image") + '"/>').css({ "position": "fixed", "z-index": "999" });
+            $addTocartBtn.prepend($image);
+            var position = $cartIcon.position();
+            $image.animate({
+
+            }, 500, "linear", function () {
+                $image.remove();
+            });
+        }
+
+        $('.my-cart-btn').myCart({
+            classCartIcon: 'my-cart-icon',
+            classCartBadge: 'my-cart-badge',
+            affixCartIcon: true,
+            checkoutCart: function (products) {
+                $.each(products, function () {
+                    console.log(this);
+                });
+            },
+            clickOnAddToCart: function ($addTocart) {
+                goToCartIcon($addTocart);
+            },
+            getDiscountPrice: function (products) {
+                var total = 0;
+                $.each(products, function () {
+                    total += this.quantity * this.price;
+                });
+                return total * 1;
+            }
+        });
+
+    });
+</script>
+@RenderSection("Scripts",false)
+</body>
+<!--ترجمه شده توسط مرجع تخصصی برنامه نویسان-->
+</html>

@@ -1,0 +1,146 @@
+﻿@model IEnumerable<ShanellStore.DataLayer.Entities.Product.Product>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h1>محصولات</h1>
+
+<p>
+    <a asp-action="Create">ایجاد محصول جدید</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Category.Title)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ProductBrand.BrandName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ProductColor.Color)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ProductSize.Size)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Price)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.IsAvailable)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ImageName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CreateDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.IsDeleted)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DiscountPercent)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DiscountedPrice)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Category.Title)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ProductBrand.BrandName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ProductColor.Color)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ProductSize.Size)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Price)
+            </td>
+            @if (item.IsAvailable)
+            {
+                <td class="text-success">
+                    <i class="glyphicon glyphicon-ok"></i>
+                </td>
+            }
+            else
+            {
+                <td class="text-danger">
+                    <i class="glyphicon glyphicon-remove"></i>
+                </td>
+            }
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+            <td>
+
+                <img src="/ProductImages/@item.ImageName" style="max-width: 100px" class="thumbnail" />
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CreateDate)
+            </td>
+            @if (item.IsDeleted == true)
+            {
+                <td class="text-success">
+                    <i class="glyphicon glyphicon-ok"></i>
+                </td>
+            }
+            else
+            {
+                <td class="text-danger">
+                    <i class="glyphicon glyphicon-remove"></i>
+                </td>
+            }
+            <td>
+                @Html.DisplayFor(modelItem => item.DiscountPercent)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DiscountedPrice)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.ProductId">ویرایش </a> |
+                <a asp-action="Details" asp-route-id="@item.ProductId">جزئیات </a> |
+                <a asp-action="Delete" asp-route-id="@item.ProductId">حذف </a>
+            </td>
+        </tr>
+        }
+    </tbody>
+</table>
+@if (ViewBag.count > 1)
+{
+    <nav>
+        <ul class="pagination">
+            @if (ViewBag.PageCount % 12 != 0)
+            {
+                @for (int i = 1; i <= ((int) ViewBag.PageCount + 1); i++)
+                {
+                    <li class="@(((int) ViewBag.PageID == i) ? "active" : "")"><a class="page-link" href="/Admin/Products/Index?pageId=@i">@i</a></li>
+
+                }
+            }
+
+            else
+            {
+                @for (int i = 1; i <= (int)ViewBag.PageCount; i++)
+                {
+                    <li class="@(((int)ViewBag.PageID==i)?"active":"")"><a class="page-link" href="/Admin/Products/Index?pageId=@i">@i</a></li>
+
+                }
+            }
+        </ul>
+    </nav>
+}

@@ -1,0 +1,32 @@
+﻿@using ShanellStore.Core.Convertors
+@model ShanellStore.DataLayer.Entities.User.User
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Areas/Users/Views/Shared/_UserLayout.cshtml";
+}
+
+<!-- /.panel-heading -->
+<div class="panel-body">
+    <div class="table-responsive table-bordered">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>نام کاربری</th>
+                    <th>ایمیل</th>
+                    <th>تاریخ ثبت نام</th>
+
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>@Model.UserName</td>
+                    <td>@Model.Email</td>
+                    <td>@Model.RegisterDate.Value.ToShamsi()</td>
+
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <!-- /.table-responsive -->
+</div>
+<!-- /.panel-body -->

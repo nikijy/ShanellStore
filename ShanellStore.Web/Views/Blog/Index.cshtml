@@ -1,0 +1,57 @@
+﻿
+@using ShanellStore.Core.Convertors
+@model IEnumerable<ShanellStore.Core.DTOs.Blog.BlogViewModel>
+@{
+    ViewData["Title"] = "نمایش بلاگ ها";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="col-md-12">
+    <div class="products-breadcrumb">
+        <div class="container">
+            <ul>
+                <li><i class="fa fa-home" aria-hidden="true"></i><a href="/Home/Index">صفحه اصلی</a><span>|</span></li>
+                <li>بلاگ ها</li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+
+
+<div class="w3ls_w3l_banner_nav_left_grid">
+    <h3>لیست بلاگ ها </h3>
+    <div class="w3ls_w3l_banner_nav_left_grid1">
+        @foreach (var item in Model)
+        {
+            <div class="col-md-3 w3ls_w3l_banner_right">
+                <div class="hover14 column">
+                    <div class="agile_top_brand_right_grid w3l_agile_top_brand_right_grid">
+                        <div class="agile_top_brand_right_grid_pos">
+                        </div>
+                        <div class="agile_top_brand_right_grid1">
+                            <figure>
+                                <div class="snipcart-item block">
+                                    <div class="snipcart-thumb">
+                                        <a href="/Blog/@item.BlogId"><img src="/BlogImages/@item.ImageName" alt=" " class="img-responsive" style="height: 350px; width: 350px;"></a>
+                                        <p>@item.ShortDescription</p>
+                                        <p>@item.UserName</p>
+                                        <hr />
+                                        <p>@item.CreateDate.Value.ToShamsi()</p>
+
+                                    </div>
+                                    <div class="snipcart-details">
+                                        <a href="/Blog/@item.BlogId" class="btn btn-danger my-cart-btn hvr-sweep-to-left" data-id="5" data-name="Knorr instant soup" data-summary="summary 5" data-price="3.00" data-quantity="1" data-image="images/5.png">بیشتر بخوانید</a>
+                                    </div>
+                                </div>
+                            </figure>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        }
+        <div class="clearfix"> </div>
+    </div>
+
+</div>
+
