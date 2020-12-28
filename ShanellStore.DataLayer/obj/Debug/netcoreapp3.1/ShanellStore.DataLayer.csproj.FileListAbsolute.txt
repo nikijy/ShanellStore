@@ -1,0 +1,11 @@
+F:\Shanell Store\ShanellStore\ShanellStore.DataLayer\bin\Debug\netcoreapp3.1\ShanellStore.DataLayer.deps.json
+F:\Shanell Store\ShanellStore\ShanellStore.DataLayer\bin\Debug\netcoreapp3.1\ShanellStore.DataLayer.runtimeconfig.json
+F:\Shanell Store\ShanellStore\ShanellStore.DataLayer\bin\Debug\netcoreapp3.1\ShanellStore.DataLayer.runtimeconfig.dev.json
+F:\Shanell Store\ShanellStore\ShanellStore.DataLayer\bin\Debug\netcoreapp3.1\ShanellStore.DataLayer.dll
+F:\Shanell Store\ShanellStore\ShanellStore.DataLayer\bin\Debug\netcoreapp3.1\ShanellStore.DataLayer.pdb
+F:\Shanell Store\ShanellStore\ShanellStore.DataLayer\obj\Debug\netcoreapp3.1\ShanellStore.DataLayer.AssemblyInfoInputs.cache
+F:\Shanell Store\ShanellStore\ShanellStore.DataLayer\obj\Debug\netcoreapp3.1\ShanellStore.DataLayer.AssemblyInfo.cs
+F:\Shanell Store\ShanellStore\ShanellStore.DataLayer\obj\Debug\netcoreapp3.1\ShanellStore.DataLayer.csproj.CoreCompileInputs.cache
+F:\Shanell Store\ShanellStore\ShanellStore.DataLayer\obj\Debug\netcoreapp3.1\ShanellStore.DataLayer.dll
+F:\Shanell Store\ShanellStore\ShanellStore.DataLayer\obj\Debug\netcoreapp3.1\ShanellStore.DataLayer.pdb
+F:\Shanell Store\ShanellStore\ShanellStore.DataLayer\obj\Debug\netcoreapp3.1\ShanellStore.DataLayer.genruntimeconfig.cache

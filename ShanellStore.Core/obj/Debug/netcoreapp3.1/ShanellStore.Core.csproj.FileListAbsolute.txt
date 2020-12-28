@@ -1,0 +1,12 @@
+F:\Shanell Store\ShanellStore\ShanellStore.Core\bin\Debug\netcoreapp3.1\ShanellStore.Core.deps.json
+F:\Shanell Store\ShanellStore\ShanellStore.Core\bin\Debug\netcoreapp3.1\ShanellStore.Core.dll
+F:\Shanell Store\ShanellStore\ShanellStore.Core\bin\Debug\netcoreapp3.1\ShanellStore.Core.pdb
+F:\Shanell Store\ShanellStore\ShanellStore.Core\bin\Debug\netcoreapp3.1\ShanellStore.DataLayer.dll
+F:\Shanell Store\ShanellStore\ShanellStore.Core\bin\Debug\netcoreapp3.1\ShanellStore.DataLayer.pdb
+F:\Shanell Store\ShanellStore\ShanellStore.Core\obj\Debug\netcoreapp3.1\ShanellStore.Core.csprojAssemblyReference.cache
+F:\Shanell Store\ShanellStore\ShanellStore.Core\obj\Debug\netcoreapp3.1\ShanellStore.Core.AssemblyInfoInputs.cache
+F:\Shanell Store\ShanellStore\ShanellStore.Core\obj\Debug\netcoreapp3.1\ShanellStore.Core.AssemblyInfo.cs
+F:\Shanell Store\ShanellStore\ShanellStore.Core\obj\Debug\netcoreapp3.1\ShanellStore.Core.csproj.CoreCompileInputs.cache
+F:\Shanell Store\ShanellStore\ShanellStore.Core\obj\Debug\netcoreapp3.1\ShanellStore.Core.csproj.CopyComplete
+F:\Shanell Store\ShanellStore\ShanellStore.Core\obj\Debug\netcoreapp3.1\ShanellStore.Core.dll
+F:\Shanell Store\ShanellStore\ShanellStore.Core\obj\Debug\netcoreapp3.1\ShanellStore.Core.pdb
